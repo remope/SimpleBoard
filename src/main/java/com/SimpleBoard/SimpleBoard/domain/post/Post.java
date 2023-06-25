@@ -25,13 +25,13 @@ public class Post extends BaseTimeEntity {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private User author;
 
     @Builder
-    public Post(String title, String content, User user){
+    public Post(String title, String content, User author){
         this.title = title;
         this.content = content;
-        this.user = user;
+        this.author = author;
     }
 
     public void update(PostUpdateRequestDto requestDto){
