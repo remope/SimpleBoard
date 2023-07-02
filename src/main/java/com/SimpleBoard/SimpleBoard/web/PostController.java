@@ -5,9 +5,8 @@ import com.SimpleBoard.SimpleBoard.service.post.PostService;
 import com.SimpleBoard.SimpleBoard.web.dto.PostCreatePostRequestDto;
 import com.SimpleBoard.SimpleBoard.web.dto.PostFindResponseDto;
 import com.SimpleBoard.SimpleBoard.web.dto.PostListsResponseDto;
-import com.SimpleBoard.SimpleBoard.web.dto.PostUpdateRequestDto;
+import com.SimpleBoard.SimpleBoard.web.dto.PutUpdatePostRequestDto;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,7 +24,7 @@ public class PostController {
     }
 
     @PutMapping("/{id}")
-    public Long updatePost(@PathVariable Long id, @RequestBody PostUpdateRequestDto requestDto){
+    public Long updatePost(@PathVariable Long id, @RequestBody PutUpdatePostRequestDto requestDto){
         return postService.update(id, requestDto);
     }
 

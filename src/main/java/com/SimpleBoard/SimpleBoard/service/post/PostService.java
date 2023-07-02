@@ -6,9 +6,8 @@ import com.SimpleBoard.SimpleBoard.domain.post.PostRepository;
 import com.SimpleBoard.SimpleBoard.web.dto.PostCreatePostRequestDto;
 import com.SimpleBoard.SimpleBoard.web.dto.PostFindResponseDto;
 import com.SimpleBoard.SimpleBoard.web.dto.PostListsResponseDto;
-import com.SimpleBoard.SimpleBoard.web.dto.PostUpdateRequestDto;
+import com.SimpleBoard.SimpleBoard.web.dto.PutUpdatePostRequestDto;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,7 +21,7 @@ public class PostService {
     private final PostRepository postRepository;
 
     @Transactional
-    public Long update(Long id, PostUpdateRequestDto requestDto){
+    public Long update(Long id, PutUpdatePostRequestDto requestDto){
         Post post = postRepository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("게시글이 존재하지 않습니다.")
         );

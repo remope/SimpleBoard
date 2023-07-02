@@ -2,7 +2,7 @@ package com.SimpleBoard.SimpleBoard.domain.post;
 
 import com.SimpleBoard.SimpleBoard.domain.BaseTimeEntity;
 import com.SimpleBoard.SimpleBoard.domain.user.User;
-import com.SimpleBoard.SimpleBoard.web.dto.PostUpdateRequestDto;
+import com.SimpleBoard.SimpleBoard.web.dto.PutUpdatePostRequestDto;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -34,7 +34,7 @@ public class Post extends BaseTimeEntity {
         this.author = author;
     }
 
-    public void update(PostUpdateRequestDto requestDto){
+    public void update(PutUpdatePostRequestDto requestDto){
         this.title = requestDto.getTitle();
         this.content = requestDto.getContent();
     }

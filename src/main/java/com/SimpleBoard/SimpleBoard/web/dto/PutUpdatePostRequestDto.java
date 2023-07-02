@@ -5,11 +5,11 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 @Getter
-public class PostUpdateRequestDto {
+public class PutUpdatePostRequestDto {
     private String title;
     private String content;
 
-    public PostUpdateRequestDto(String title, String content) {
+    public PutUpdatePostRequestDto(String title, String content) {
         this.title = title;
         this.content = content;
     }
