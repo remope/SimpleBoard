@@ -5,7 +5,7 @@ import com.SimpleBoard.SimpleBoard.domain.post.Post;
 import com.SimpleBoard.SimpleBoard.domain.post.PostRepository;
 import com.SimpleBoard.SimpleBoard.web.dto.PostCreatePostRequestDto;
 import com.SimpleBoard.SimpleBoard.web.dto.PostFindResponseDto;
-import com.SimpleBoard.SimpleBoard.web.dto.PostListsResponseDto;
+import com.SimpleBoard.SimpleBoard.web.dto.GetPostListsResponseDto;
 import com.SimpleBoard.SimpleBoard.web.dto.PutUpdatePostRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -43,9 +43,9 @@ public class PostService {
     }
 
     @Transactional
-    public List<PostListsResponseDto> findAllDesc(){
+    public List<GetPostListsResponseDto> findAllDesc(){
         return postRepository.findAllDesc().stream()
-                .map(PostListsResponseDto::new)
+                .map(GetPostListsResponseDto::new)
                 .collect(Collectors.toList());
     }
 

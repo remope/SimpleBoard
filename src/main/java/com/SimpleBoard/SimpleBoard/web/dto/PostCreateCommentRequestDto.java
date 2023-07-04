@@ -11,14 +11,12 @@ public class PostCreateCommentRequestDto {
 
     private String content;
     private Post post;
-    private Comment parent;
     private User author;
 
     @Builder
-    public PostCreateCommentRequestDto(String content, Post post, Comment parent, User author) {
+    public PostCreateCommentRequestDto(String content, Post post, User author) {
         this.content = content;
         this.post = post;
-        this.parent = parent;
         this.author = author;
     }
 
@@ -26,7 +24,6 @@ public class PostCreateCommentRequestDto {
         return Comment.builder()
                 .content(content)
                 .post(post)
-                .parent(parent)
                 .author(author)
                 .build();
     }

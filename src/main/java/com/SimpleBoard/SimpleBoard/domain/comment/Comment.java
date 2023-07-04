@@ -28,21 +28,13 @@ public class Comment extends BaseTimeEntity {
     private Post post;
 
     @ManyToOne
-    @JoinColumn(name = "parent_id")
-    private Comment parent;
-
-    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL)
-    private List<Comment> replies = new ArrayList<>();
-
-    @ManyToOne
     @JoinColumn(name = "user_id")
     private User author;
 
     @Builder
-    public Comment(String content, Post post, Comment parent, User author){
+    public Comment(String content, Post post, User author){
         this.content = content;
         this.post = post;
-        this.parent = parent;
         this.author = author;
     }
 

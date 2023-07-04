@@ -4,7 +4,7 @@ package com.SimpleBoard.SimpleBoard.web;
 import com.SimpleBoard.SimpleBoard.service.post.PostService;
 import com.SimpleBoard.SimpleBoard.web.dto.PostCreatePostRequestDto;
 import com.SimpleBoard.SimpleBoard.web.dto.PostFindResponseDto;
-import com.SimpleBoard.SimpleBoard.web.dto.PostListsResponseDto;
+import com.SimpleBoard.SimpleBoard.web.dto.GetPostListsResponseDto;
 import com.SimpleBoard.SimpleBoard.web.dto.PutUpdatePostRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -34,7 +34,7 @@ public class PostController {
     }
 
     @GetMapping
-    public List<PostListsResponseDto> findAll(){
+    public List<GetPostListsResponseDto> findAll(){
         return postService.findAllDesc();
     }
 

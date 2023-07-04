@@ -2,16 +2,22 @@ package com.SimpleBoard.SimpleBoard.service.comment;
 
 import com.SimpleBoard.SimpleBoard.domain.comment.Comment;
 import com.SimpleBoard.SimpleBoard.domain.comment.CommentRepository;
+import com.SimpleBoard.SimpleBoard.web.dto.GetCommentListsResponseDto;
+import com.SimpleBoard.SimpleBoard.web.dto.GetPostListsResponseDto;
 import com.SimpleBoard.SimpleBoard.web.dto.PostCreateCommentRequestDto;
 import com.SimpleBoard.SimpleBoard.web.dto.PutUpdateCommentRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @RequiredArgsConstructor
 @Service
 public class CommentService {
     private final CommentRepository commentRepository;
+
 
     @Transactional
     public Long save(PostCreateCommentRequestDto requestDto){
@@ -25,5 +31,11 @@ public class CommentService {
 
         comment.update(requestDto);
         return comment.getId();
+    }
+
+    public List<GetCommentListsResponseDto> findByPostId(Long id) {
+        return commentRepository.findByPostId(id).stream()
+                .map(GetCommentListsResponseDto::new)
+                .collect(Collectors.toList());
     }
 }

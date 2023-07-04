@@ -2,6 +2,7 @@ package com.SimpleBoard.SimpleBoard.domain.user;
 
 
 import com.SimpleBoard.SimpleBoard.domain.BaseTimeEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
